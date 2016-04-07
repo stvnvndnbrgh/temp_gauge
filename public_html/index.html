@@ -30,6 +30,7 @@ and open the template in the editor.
                     $(data.items).each(function(index, value){
                         console.log(value.id, value.value);
                         t1 = data.items[0].value;
+                        t2 = data.items[1].value;
                         console.log(t1);
                     });
                 }
@@ -53,6 +54,24 @@ and open the template in the editor.
 		data-colors-needle="#f00"
                 data-highlights="0 20 #eee, 20 60 #ccc, 60 95 #999, 95 105 #0f0, 105 110 #999"
 		data-onready="setInterval( function() { Gauge.Collection.get('gauge1').setValue(t1)}, 500);"
+	></canvas>
+                <canvas id="gauge2" width="200" height="200"
+		data-type="canv-gauge"
+		data-title="Temperature"
+		data-min-value="0"
+		data-max-value="110"
+		data-major-ticks="0 10 20 30 40 50 60 70 80 90 100 110"
+		data-minor-ticks="10"
+		data-stroke-ticks="true"
+		data-units="°C"
+		data-value-format="3.2"
+		data-glow="true"
+		data-animation-delay="10"
+		data-animation-duration="200"
+		data-animation-fn="bounce"
+		data-colors-needle="#f00"
+                data-highlights="0 20 #eee, 20 60 #ccc, 60 95 #999, 95 105 #0f0, 105 110 #999"
+		data-onready="setInterval( function() { Gauge.Collection.get('gauge2').setValue(t2)}, 500);"
 	></canvas>
     </body>
 </html>
