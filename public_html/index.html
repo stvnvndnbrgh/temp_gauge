@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+	<title>Ajax</title>
+        <link rel="shortcut icon" href="">
+        <script src="gauge.js"></script>
+        <meta charset="utf-8">
+        <meta http-equiv="refresh" content="30" />
+</head>
+    <body>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+        <script>
+            /*
+            $.getJSON('data.my_json', function(data) {
+                console.log(data);
+            }); */
+    
+            $.ajax({
+                url: 'my_data.json',
+                dataType: 'json',
+                type: 'get',
+                cache: false,
+                success: function(data) {
+                    /*$(data.items).each(function(index, value){*/
+                    $(data.items).each(function(index, value){
+                        console.log(value.id, value.value);
+                        t1 = data.items[0].value;
+                        console.log(t1);
+                    });
+                }
+            });
+
+        </script>
+        	<canvas id="gauge1" width="200" height="200"
+		data-type="canv-gauge"
+		data-title="Temperature"
+		data-min-value="0"
+		data-max-value="110"
+		data-major-ticks="0 10 20 30 40 50 60 70 80 90 100 110"
+		data-minor-ticks="10"
+		data-stroke-ticks="true"
+		data-units="°C"
+		data-value-format="3.2"
+		data-glow="true"
+		data-animation-delay="10"
+		data-animation-duration="200"
+		data-animation-fn="bounce"
+		data-colors-needle="#f00"
+                data-highlights="0 20 #eee, 20 60 #ccc, 60 95 #999, 95 105 #0f0, 105 110 #999"
+		data-onready="setInterval( function() { Gauge.Collection.get('gauge1').setValue(t1)}, 500);"
+	></canvas>
+    </body>
+</html>
